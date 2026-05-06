@@ -1,0 +1,8 @@
+[build]
+builder = "dockerfile"
+
+[build.dockerfile]
+cmd = "javac -d out *.java"
+
+[start]
+cmd = "java -cp out biblioteca.Main"

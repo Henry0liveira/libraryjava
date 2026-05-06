@@ -36,6 +36,22 @@ java -cp out biblioteca.Main
 
 Acesse: **http://localhost:8080**
 
+## Como hospedar tudo
+
+GitHub Pages não hospeda a API Java, então use um serviço que execute o backend. Este repositório já inclui `nixpacks.toml` para publicar no Railway.
+
+Passos no Railway:
+1. Faça push do repositório para o GitHub.
+2. No Railway, crie um novo projeto a partir do repositório.
+3. O Railway vai ler o arquivo `nixpacks.toml` e usar:
+   - Build: `javac -d out *.java`
+   - Start: `java -cp out biblioteca.Main`
+4. Publique o serviço.
+
+O servidor usa a variável `PORT` quando ela existe, então ele funciona em hosts que atribuem a porta automaticamente.
+
+Se preferir Render, o arquivo `render.yaml` continua disponível.
+
 ## Endpoints da API REST
 
 | Método   | Rota                               | Ação                              |

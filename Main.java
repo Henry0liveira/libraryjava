@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        int porta = 8080;
+        int porta = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
         String staticDir = Paths.get("src/main/resources/static").toAbsolutePath().toString();
 
         HttpServer server = HttpServer.create(new InetSocketAddress(porta), 0);

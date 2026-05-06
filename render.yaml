@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: libraryjava
+    env: java
+    buildCommand: javac -d out *.java
+    startCommand: java -cp out biblioteca.Main
+    envVars:
+      - key: JAVA_VERSION
+        value: 11

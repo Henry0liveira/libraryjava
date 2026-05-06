@@ -1,0 +1,5 @@
+[phases.build]
+cmds = ["javac -d out *.java"]
+
+[start]
+cmd = "java -cp out biblioteca.Main"

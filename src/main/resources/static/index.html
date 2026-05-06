@@ -41,62 +41,60 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 4px rgba(0,0,0,.06);
   }
-  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); letter-spacing: .03em; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); letter-spacing: .03em; }
   .logo span { font-style: italic; }
-  .header-stats { display: flex; gap: 2.5rem; margin-left: auto; }
+  .header-stats { display: flex; gap: 2rem; margin-left: auto; }
   .stat { text-align: center; }
-  .stat-num { font-family: 'DM Mono', monospace; font-size: 1.3rem; color: var(--gold); }
-  .stat-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  .stat-num { font-family: 'DM Mono', monospace; font-size: 1.4rem; color: var(--gold); }
+  .stat-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
 
   /* ── Layout ── */
-  .main { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 65px); }
+  .main { display: grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 73px); }
 
   /* ── Sidebar ── */
   aside {
     background: var(--surface);
     border-right: 1px solid var(--border);
-    padding: 1.75rem 1.25rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
   .section-title {
     font-family: 'DM Mono', monospace;
-    font-size: .63rem;
+    font-size: .65rem;
     text-transform: uppercase;
     letter-spacing: .15em;
-    color: var(--muted);
-    margin-bottom: .6rem;
+    color: var(--gold-dim);
+    margin-bottom: .75rem;
   }
+  .search-box { position: relative; }
   .search-box input {
     width: 100%;
-    background: var(--bg);
+    background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     color: var(--text);
-    padding: .6rem .9rem;
+    padding: .65rem 1rem;
     font-family: 'DM Sans', sans-serif;
-    font-size: .875rem;
+    font-size: .9rem;
     outline: none;
-    transition: border-color .2s, box-shadow .2s;
+    transition: border-color .2s;
   }
-  .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(160,120,48,.1); }
-  .search-box input::placeholder { color: var(--muted); }
-  .search-type { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .5rem; }
+  .search-box input:focus { border-color: var(--gold); }
+  .search-type { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
   .pill {
     background: none;
     border: 1px solid var(--border);
     border-radius: 20px;
     color: var(--muted);
     cursor: pointer;
-    font-size: .73rem;
-    padding: .22rem .7rem;
-    transition: all .15s;
+    font-size: .75rem;
+    padding: .25rem .75rem;
+    transition: all .2s;
   }
-  .pill.active { border-color: var(--gold); color: var(--gold); background: rgba(160,120,48,.07); }
-  .pill:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .pill.active, .pill:hover { border-color: var(--gold); color: var(--gold); }
 
   .btn {
     border: none;
@@ -105,19 +103,19 @@
     font-family: 'DM Sans', sans-serif;
     font-size: .85rem;
     font-weight: 500;
-    padding: .65rem 1.2rem;
+    padding: .7rem 1.25rem;
     transition: all .2s;
   }
-  .btn-gold { background: var(--gold); color: #fff; }
-  .btn-gold:hover { background: #8a6428; }
+  .btn-gold { background: var(--gold); color: #0f0d0a; }
+  .btn-gold:hover { background: #d4b05a; }
   .btn-outline { background: none; border: 1px solid var(--border); color: var(--muted); }
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-danger { background: none; border: 1px solid transparent; color: var(--muted); font-size: .8rem; }
+  .btn-danger:hover { color: var(--red); }
   .btn-full { width: 100%; text-align: center; }
 
   /* ── Genre filter ── */
-  .genre-list { display: flex; flex-direction: column; gap: .2rem; max-height: 340px; overflow-y: auto; }
-  .genre-list::-webkit-scrollbar { width: 3px; }
-  .genre-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .genre-list { display: flex; flex-direction: column; gap: .3rem; }
   .genre-item {
     background: none;
     border: none;
@@ -125,35 +123,34 @@
     color: var(--muted);
     cursor: pointer;
     font-family: 'DM Sans', sans-serif;
-    font-size: .83rem;
-    padding: .38rem .7rem;
+    font-size: .85rem;
+    padding: .4rem .75rem;
     text-align: left;
-    transition: all .12s;
+    transition: all .15s;
   }
-  .genre-item:hover { background: var(--bg); color: var(--text); }
-  .genre-item.active { background: rgba(160,120,48,.1); color: var(--gold); font-weight: 500; }
+  .genre-item:hover, .genre-item.active { background: var(--card); color: var(--cream); }
 
   /* ── Content ── */
   .content { padding: 2rem; }
-  .toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem; }
-  .toolbar h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 400; flex: 1; color: var(--text); }
-  .result-count { font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--muted); }
+  .toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .toolbar h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; flex: 1; }
+  .result-count { font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--muted); }
 
   /* ── Grid ── */
   .livros-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
   }
   .livro-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.35rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: .6rem;
-    transition: border-color .2s, box-shadow .2s, transform .15s;
+    gap: .75rem;
+    transition: border-color .2s, transform .15s;
     position: relative;
     overflow: hidden;
   }
@@ -166,136 +163,126 @@
     opacity: 0;
     transition: opacity .2s;
   }
-  .livro-card:hover {
-    border-color: var(--gold-dim);
-    box-shadow: 0 4px 16px rgba(0,0,0,.08);
-    transform: translateY(-2px);
-  }
+  .livro-card:hover { border-color: var(--gold-dim); transform: translateY(-2px); }
   .livro-card:hover::before { opacity: 1; }
   .livro-titulo {
     font-family: 'Playfair Display', serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--cream);
-    line-height: 1.35;
+    line-height: 1.3;
   }
-  .livro-autor { font-size: .8rem; color: var(--gold); font-style: italic; }
-  .livro-meta { display: flex; gap: .4rem; flex-wrap: wrap; align-items: center; margin-top: .15rem; }
+  .livro-autor { font-size: .82rem; color: var(--gold); font-style: italic; }
+  .livro-meta { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-top: .25rem; }
   .tag {
-    background: var(--bg);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 3px;
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .68rem;
     color: var(--muted);
-    padding: .12rem .45rem;
+    padding: .15rem .5rem;
   }
   .badge {
     border-radius: 20px;
-    font-size: .65rem;
+    font-size: .68rem;
     font-weight: 500;
-    padding: .18rem .6rem;
+    padding: .2rem .65rem;
     margin-left: auto;
   }
-  .badge.disponivel { background: rgba(30,132,73,.1); color: var(--green); border: 1px solid rgba(30,132,73,.25); }
-  .badge.indisponivel { background: rgba(192,57,43,.08); color: var(--red); border: 1px solid rgba(192,57,43,.2); }
-  .livro-isbn { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--muted); }
-  .livro-actions { display: flex; gap: .4rem; margin-top: .4rem; padding-top: .6rem; border-top: 1px solid var(--border); }
+  .badge.disponivel { background: rgba(39,174,96,.15); color: var(--green); border: 1px solid rgba(39,174,96,.3); }
+  .badge.indisponivel { background: rgba(192,57,43,.15); color: var(--red); border: 1px solid rgba(192,57,43,.3); }
+  .livro-actions { display: flex; gap: .5rem; margin-top: .5rem; }
   .btn-sm {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     cursor: pointer;
     font-family: 'DM Sans', sans-serif;
-    font-size: .73rem;
-    padding: .3rem .65rem;
-    transition: all .12s;
+    font-size: .75rem;
+    padding: .35rem .75rem;
+    transition: all .15s;
     background: none;
     color: var(--muted);
   }
-  .btn-sm:hover { border-color: var(--gold); color: var(--gold); background: rgba(160,120,48,.05); }
-  .btn-sm.red:hover { border-color: var(--red); color: var(--red); background: rgba(192,57,43,.05); }
+  .btn-sm:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-sm.red:hover { border-color: var(--red); color: var(--red); }
 
   /* ── Modal ── */
   .overlay {
     display: none;
     position: fixed; inset: 0;
-    background: rgba(44,36,22,.4);
+    background: rgba(0,0,0,.7);
     z-index: 200;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
   }
   .overlay.open { display: flex; }
   .modal {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 2.25rem;
+    border-radius: 8px;
+    padding: 2.5rem;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.15);
-    animation: slideUp .22s ease;
+    animation: slideUp .25s ease;
   }
-  @keyframes slideUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   .modal-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--cream);
-    margin-bottom: 1.75rem;
+    margin-bottom: 2rem;
   }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
-  .form-group { display: flex; flex-direction: column; gap: .35rem; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: .4rem; }
   .form-group.full { grid-column: 1 / -1; }
   .form-group label {
     font-family: 'DM Mono', monospace;
-    font-size: .63rem;
+    font-size: .68rem;
     text-transform: uppercase;
     letter-spacing: .1em;
     color: var(--muted);
   }
   .form-group input, .form-group select {
-    background: var(--bg);
+    background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
-    font-size: .875rem;
+    font-size: .9rem;
     outline: none;
-    padding: .55rem .85rem;
-    transition: border-color .2s, box-shadow .2s;
+    padding: .6rem .9rem;
+    transition: border-color .2s;
   }
-  .form-group input:focus, .form-group select:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(160,120,48,.1);
-  }
-  .modal-actions { display: flex; justify-content: flex-end; gap: .65rem; margin-top: 1.75rem; }
-  .error-msg { color: var(--red); font-size: .78rem; margin-top: .4rem; display: none; }
+  .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--surface); }
+  .modal-actions { display: flex; justify-content: flex-end; gap: .75rem; margin-top: 2rem; }
+  .error-msg { color: var(--red); font-size: .8rem; margin-top: .25rem; display: none; }
   .error-msg.show { display: block; }
 
-  /* ── Empty ── */
+  /* ── Empty state ── */
   .empty {
     text-align: center;
     padding: 5rem 2rem;
     color: var(--muted);
     grid-column: 1/-1;
   }
-  .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: .5; }
-  .empty h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: .4rem; color: var(--text); }
+  .empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: .4; }
+  .empty h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: .5rem; color: var(--text); }
 
   /* ── Toast ── */
   #toast {
     position: fixed;
     bottom: 2rem; right: 2rem;
-    background: var(--surface);
+    background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: .8rem 1.4rem;
-    font-size: .83rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    padding: .85rem 1.5rem;
+    font-size: .85rem;
     transform: translateX(200%);
     transition: transform .3s ease;
     z-index: 999;
     max-width: 300px;
-    color: var(--text);
   }
   #toast.show { transform: translateX(0); }
   #toast.success { border-left: 3px solid var(--green); }
@@ -341,7 +328,7 @@
     <hr class="divider">
 
     <div>
-      <div class="section-title">Gêneros</div>
+      <div class="section-title">Filtrar</div>
       <div class="genre-list" id="genre-list">
         <button class="genre-item active" onclick="filtrarGenero(null, this)">Todos os gêneros</button>
       </div>
@@ -371,6 +358,7 @@
       <div class="form-group full">
         <label>Título *</label>
         <input type="text" id="f-titulo" placeholder="Ex: Dom Casmurro">
+        <span class="error-msg" id="err-titulo"></span>
       </div>
       <div class="form-group full">
         <label>Autor *</label>
@@ -410,9 +398,11 @@
 const API = '/api';
 let editandoId = null;
 let tipoBusca = 'titulo';
+let generoAtivo = null;
 let todosLivros = [];
 
-window.onload = () => carregarTudo();
+// ── Init ──────────────────────────────────────────────────────────────────
+window.onload = () => { carregarTudo(); };
 
 async function carregarTudo() {
   await Promise.all([carregarLivros(), carregarStats(), carregarGeneros()]);
@@ -452,6 +442,7 @@ async function carregarGeneros() {
   } catch {}
 }
 
+// ── Render ───────────────────────────────────────────────────────────────
 function renderizarLivros(livros) {
   const grid = document.getElementById('livros-grid');
   document.getElementById('result-count').textContent = `${livros.length} livro${livros.length !== 1 ? 's' : ''}`;
@@ -460,7 +451,7 @@ function renderizarLivros(livros) {
     return;
   }
   grid.innerHTML = livros.map(l => `
-    <div class="livro-card">
+    <div class="livro-card" id="card-${l.id}">
       <div class="livro-titulo">${esc(l.titulo)}</div>
       <div class="livro-autor">${esc(l.autor)}</div>
       <div class="livro-meta">
@@ -468,7 +459,7 @@ function renderizarLivros(livros) {
         ${l.genero ? `<span class="tag">${esc(l.genero)}</span>` : ''}
         <span class="badge ${l.disponivel ? 'disponivel' : 'indisponivel'}">${l.disponivel ? 'Disponível' : 'Emprestado'}</span>
       </div>
-      <div class="livro-isbn">${esc(l.isbn)}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted)">${esc(l.isbn)}</div>
       <div class="livro-actions">
         <button class="btn-sm" onclick="editarLivro(${l.id})">Editar</button>
         <button class="btn-sm" onclick="toggleDisp(${l.id})">${l.disponivel ? 'Emprestar' : 'Devolver'}</button>
@@ -477,6 +468,7 @@ function renderizarLivros(livros) {
     </div>`).join('');
 }
 
+// ── Busca / Filtros ───────────────────────────────────────────────────────
 function setTipo(tipo, btn) {
   tipoBusca = tipo;
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
@@ -494,12 +486,14 @@ async function buscar() {
 }
 
 function filtrarGenero(genero, btn) {
+  generoAtivo = genero;
   document.querySelectorAll('.genre-item').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   if (!genero) { renderizarLivros(todosLivros); return; }
   renderizarLivros(todosLivros.filter(l => l.genero === genero));
 }
 
+// ── CRUD ─────────────────────────────────────────────────────────────────
 function abrirModal(livro = null) {
   editandoId = livro ? livro.id : null;
   document.getElementById('modal-title').textContent = livro ? 'Editar Livro' : 'Novo Livro';
@@ -563,6 +557,7 @@ async function toggleDisp(id) {
   } catch { toast('Erro de conexão', 'error'); }
 }
 
+// ── Utils ─────────────────────────────────────────────────────────────────
 function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 let toastTimer;

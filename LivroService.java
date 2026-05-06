@@ -40,11 +40,15 @@ public class LivroService {
 
     public List<Livro> buscar(String termo, String tipo) {
         if (termo == null || termo.isBlank()) return buscarTodos();
-        return switch (tipo != null ? tipo : "titulo") {
-            case "autor"  -> repository.buscarPorAutor(termo);
-            case "genero" -> repository.buscarPorGenero(termo);
-            default       -> repository.buscarPorTitulo(termo);
-        };
+        String tipoSearch = tipo != null ? tipo : "titulo";
+        switch (tipoSearch) {
+            case "autor":
+                return repository.buscarPorAutor(termo);
+            case "genero":
+                return repository.buscarPorGenero(termo);
+            default:
+                return repository.buscarPorTitulo(termo);
+        }
     }
 
     public List<Livro> buscarDisponiveis() {

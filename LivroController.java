@@ -33,19 +33,31 @@ public class LivroController implements HttpHandler {
             // Rota: /api/livros
             if (path.equals("/api/livros")) {
                 switch (method) {
-                    case "GET"  -> handleGetAll(exchange);
-                    case "POST" -> handleCreate(exchange);
-                    default     -> sendResponse(exchange, 405, erro("Método não permitido"));
+                    case "GET":
+                        handleGetAll(exchange);
+                        break;
+                    case "POST":
+                        handleCreate(exchange);
+                        break;
+                    default:
+                        sendResponse(exchange, 405, erro("Método não permitido"));
                 }
             }
             // Rota: /api/livros/{id}
             else if (path.matches("/api/livros/\\d+")) {
                 long id = Long.parseLong(path.split("/")[3]);
                 switch (method) {
-                    case "GET"    -> handleGetById(exchange, id);
-                    case "PUT"    -> handleUpdate(exchange, id);
-                    case "DELETE" -> handleDelete(exchange, id);
-                    default       -> sendResponse(exchange, 405, erro("Método não permitido"));
+                    case "GET":
+                        handleGetById(exchange, id);
+                        break;
+                    case "PUT":
+                        handleUpdate(exchange, id);
+                        break;
+                    case "DELETE":
+                        handleDelete(exchange, id);
+                        break;
+                    default:
+                        sendResponse(exchange, 405, erro("Método não permitido"));
                 }
             }
             // Rota: /api/livros/{id}/disponibilidade

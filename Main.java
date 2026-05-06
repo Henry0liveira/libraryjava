@@ -16,7 +16,7 @@ public class Main {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(porta), 0);
         server.createContext("/api/", new LivroController());
-        server.createContext("/",    new StaticHandler(staticDir));
+        server.createContext("/",     new StaticHandler(staticDir));
         server.setExecutor(Executors.newFixedThreadPool(4));
         server.start();
 
